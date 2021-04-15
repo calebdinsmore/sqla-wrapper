@@ -23,7 +23,7 @@ def get_default_model_class(db):
             """Tries to create a new record, and if it fails
             because already exists, return the first it founds."""
             first = cls.first(**attrs)
-            if first:
+            if first is not None:
                 return first
             else:
                 return cls.create(**attrs)
